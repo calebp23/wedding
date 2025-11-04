@@ -4,6 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Caleb & Natasha's Wedding</title>
+  <!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="shortcut icon" href="/favicon.ico">
+
 
   <!-- Meta (optional but nice) -->
   <meta name="description" content="Caleb & Tash are getting married — details, schedule, registry and RSVP." />
@@ -58,6 +65,52 @@
       </ul>
     </div>
   </section>
+  <!-- Locations -->
+<section id="locations" aria-labelledby="locations-title">
+  <div class="container">
+    <h2 id="locations-title">Locations</h2>
+
+    <!-- Ceremony -->
+    <div class="card" style="margin-bottom:1.25rem;">
+      <h3 style="margin-top:0;">Ceremony — St Stephen’s Anglican, Warrandyte</h3>
+      <p>4 Stiggants St, Warrandyte VIC 3113</p>
+      <div class="map">
+        <iframe
+          title="Map: St Stephen’s Anglican Warrandyte"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=St+Stephen%E2%80%99s+Anglican+Warrandyte&output=embed">
+        </iframe>
+      </div>
+      <p style="margin-top:.6rem;">
+        <a href="https://www.google.com/maps/search/?api=1&query=St+Stephen%E2%80%99s+Anglican+Warrandyte" target="_blank" rel="noopener">
+          Open in Google Maps
+        </a>
+      </p>
+    </div>
+
+    <!-- Reception -->
+    <div class="card">
+      <h3 style="margin-top:0;">Reception — The Heritage Golf &amp; Country Club</h3>
+      <p>132 Heritage Ave, Chirnside Park VIC 3116</p>
+      <div class="map">
+        <iframe
+          title="Map: The Heritage Golf and Country Club"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=The+Heritage+Golf+and+Country+Club&output=embed">
+        </iframe>
+      </div>
+      <p style="margin-top:.6rem;">
+        <a href="https://www.google.com/maps/search/?api=1&query=The+Heritage+Golf+and+Country+Club" target="_blank" rel="noopener">
+          Open in Google Maps
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
 <!-- Registry -->
 <section id="registry" aria-labelledby="registry-title">
   <div class="container card registry">
@@ -69,6 +122,7 @@
     </ul>
   </div>
 </section>
+
 
   <!-- RSVP -->
   <section id="rsvp" aria-labelledby="rsvp-title">
@@ -110,14 +164,30 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Client logic -->
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- Contact Us -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container card" style="text-align:center;">
+    <h2 id="contact-title">Contact Us</h2>
+    <p>If you have any questions, feel free to reach out to us directly:</p>
+
+    <p style="font-size:1.1rem; margin:1rem 0;">
+      📧 <a href="mailto:youremail@example.com">natashaandcaleb@gmail.com</a><br>
+      📞 <a href="tel:+61412345678">+61 470 299 766</a>
+    </p>
+
+  
+    </p>
+  </div>
+</section>
+
+
+ <!-- Footer -->
   <footer>
     <div class="container">
       <p>Made with ❤️ by Caleb &amp; Tash</p>
     </div>
   </footer>
-
-  <!-- Client logic -->
-  <script src="script.js"></script>
-</body>
-</html>
