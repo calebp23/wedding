@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You — Caleb & Tash</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --brand: #6c5ce7;
+      --bg: #fff7fb;
+      --ink: #2b2b2b;
+    }
+    *{ box-sizing: border-box }
+    html, body{ height:100% }
+    body{
+      margin:0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 50% -10%, rgba(108,92,231,.12), transparent 60%),
+        radial-gradient(800px 300px at 80% -10%, rgba(255,179,193,.16), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, #ffffff 45%);
+      display:flex; align-items:center; justify-content:center; text-align:center; padding: 2rem;
+    }
+    main{ max-width: 720px }
+    h1{
+      margin:0 0 .5rem;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3.5vw + 1rem, 3rem);
+      color: var(--brand);
+    }
+    p{ margin:.25rem 0 }
+    .btn{
+      display:inline-block; margin-top: 1.5rem;
+      padding: .8rem 1.2rem; border-radius: 12px;
+      background: var(--brand); color: #fff; text-decoration: none; font-weight: 700;
+    }
+    .btn:hover{ filter: brightness(.95) }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Thank You 💜</h1>
+    <p>Thank You! Your RSVP has been received!</p>
+    <a class="btn" href="./index.html">Back to Home</a>
+  </main>
+
+  <!-- Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Fire confetti when the page loads
+    window.addEventListener('load', () => {
+      // A nice burst
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      // Optional: repeat a few bursts for extra celebration
+      setTimeout(() => {
+        confetti({ particleCount: 120, spread: 100, origin: { y: 0.6 } });
+      }, 500);
+      setTimeout(() => {
+        confetti({ particleCount: 100, spread: 120, origin: { y: 0.6 } });
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

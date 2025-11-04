@@ -1,3 +1,164 @@
-.hidden { display: none; }
-#rsvp form { display: grid; gap: 0.75rem; max-width: 520px; }
-label { display: grid; gap: 0.35rem; }
+/* -------------------------
+   Caleb & Tash — Wedding Site
+   Pretty, responsive, accessible
+-------------------------- */
+
+/* ============ Base & Theme ============ */
+:root{
+  --bg: #fffdfc;
+  --ink: #2b2b2b;
+  --muted: #6b6b6b;
+  --brand: #d76dd8;        /* lavender */
+  --brand-2: #ffb3c1;      /* blush pink */
+  --card: #ffffff;
+  --ring: rgba(108,92,231,.35);
+  --shadow: 0 10px 25px rgba(0,0,0,.08);
+  --radius: 16px;
+
+  --maxw: 960px;
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+}
+
+* { box-sizing: border-box }
+html { scroll-behavior: smooth }
+body{
+  margin:0;
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--ink);
+  background: var(--bg);
+}
+
+/* ============ Layout ============ */
+.container{ max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space-2); }
+section{ padding: var(--space-4) 0; }
+
+/* ============ Header / Hero ============ */
+header{
+  padding: 6rem 0 4rem;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(108,92,231,.18), transparent 60%),
+    radial-gradient(800px 300px at 80% -10%, rgba(255,179,193,.20), transparent 60%),
+    linear-gradient(180deg, #fff7fb 0%, #ffffff 45%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header h1{
+  margin: 0 0 .4rem;
+  font-size: clamp(2rem, 3.5vw + 1rem, 3.25rem);
+  letter-spacing: .02em;
+}
+header p{ margin: .2rem 0; color: var(--muted); font-weight: 500; }
+.header-date{
+  display: inline-block;
+  margin-top: .4rem;
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(108,92,231,.15);
+}
+
+/* ============ Nav ============ */
+nav{
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.nav-inner{
+  display:flex; gap: 1rem; align-items:center; justify-content:center;
+  padding: .75rem 0;
+}
+nav a{
+  text-decoration: none; color: var(--ink); font-weight: 650;
+  padding: .4rem .8rem; border-radius: 999px;
+}
+nav a:hover{ background: rgba(108,92,231,.08); }
+
+/* ============ Cards ============ */
+.card{
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-3);
+}
+
+/* ============ Schedule ============ */
+.schedule-list{
+  display: grid; gap: .75rem;
+  margin: 0; padding: 0; list-style: none;
+}
+.schedule-item{
+  display:flex; gap: 1rem; align-items:flex-start;
+  padding: .75rem;
+  border-radius: 12px;
+  border: 1px dashed rgba(108,92,231,.25);
+  background: linear-gradient(0deg, rgba(108,92,231,.06), rgba(108,92,231,.06)) no-repeat 0 0/0 100%;
+  transition: background-size .4s ease;
+}
+.schedule-item:hover{ background-size: 100% 100%; }
+.time{ min-width: 6.5rem; font-weight: 700; color: var(--brand) }
+.place{ color: var(--ink) }
+
+/* ============ Registry ============ */
+.registry a{
+  display:inline-block; margin: .25rem 0; padding: .55rem .85rem;
+  border-radius: 12px; text-decoration: none; font-weight: 600;
+  border: 1px solid rgba(0,0,0,.08);
+}
+.registry a:hover{ background: rgba(108,92,231,.06); }
+.registry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ============ Form ============ */
+form{
+  display:grid; gap: 1rem;
+}
+label{ display:grid; gap:.35rem; font-weight: 600; }
+input[type="text"], select, textarea{
+  appearance: none;
+  padding: .7rem .85rem;
+  border-radius: 12px;
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  outline: none;
+  transition: box-shadow .2s, border-color .2s;
+  font: inherit;
+}
+input:focus, select:focus, textarea:focus{
+  border-color: var(--ring);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+textarea{ min-height: 90px; resize: vertical; }
+
+button{
+  justify-self: start;
+  padding: .8rem 1.2rem;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand), #7c6cf0);
+  color: #fff; font-weight: 800; letter-spacing: .01em;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+button:hover{ filter: brightness(.98) }
+#form-status{ color: var(--muted) }
+
+/* ============ Footer ============ */
+footer{
+  text-align:center; color: var(--muted);
+  padding: 2.5rem 1rem 3.5rem;
+}
+
+/* ============ Small screens ============ */
+@media (max-width: 520px){
+  .time{ min-width: 5.4rem }
+}

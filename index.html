@@ -1,69 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Caleb & Tash's Wedding</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caleb & Natasha's Wedding</title>
+
+  <!-- Meta (optional but nice) -->
+  <meta name="description" content="Caleb & Tash are getting married — details, schedule, registry and RSVP." />
+  <meta property="og:title" content="Caleb & Tash — Wedding" />
+  <meta property="og:description" content="Join us on Saturday, 21 November 2026." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Base enhancements -->
+  <style>
+    header h1 { font-family: "Playfair Display", serif; }
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body>
 
+  <!-- Hero -->
   <header>
-    <h1>Caleb & Tash</h1>
-    <p>We're getting married!</p>
-    <p><strong>Saturday, 21st November 2026</strong></p>
+    <div class="container">
+      <h1>Caleb &amp; Natasha</h1>
+      <p>We're getting married!</p>
+      <p class="header-date"><strong>Saturday, 21st November 2026</strong></p>
+    </div>
   </header>
 
-  <nav>
-    <a href="#schedule">Schedule</a>
-    <a href="#registry">Gift Registry</a>
-    <a href="#rsvp">RSVP</a>
+  <!-- Sticky Nav -->
+  <nav aria-label="Primary">
+    <div class="nav-inner container">
+      <a href="#schedule">Schedule</a>
+      <a href="#registry">Gift Registry</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
   </nav>
 
-  <section id="schedule">
-    <h2>Event Schedule</h2>
-    <ul>
-      <li><strong>2:00 PM</strong> – Ceremony at St Mark's Anglican Warrandyte</li>
-      <li><strong>5:30 PM</strong> – Reception at The Heritage Golf and Country Club</li>
+  <!-- Schedule -->
+  <section id="schedule" aria-labelledby="schedule-title">
+    <div class="container">
+      <h2 id="schedule-title">Event Schedule</h2>
+      <ul class="schedule-list" role="list">
+        <li class="schedule-item">
+          <div class="time"><strong>2:00 PM</strong></div>
+          <div class="place">Ceremony — St Mark's Anglican, Warrandyte</div>
+        </li>
+        <li class="schedule-item">
+          <div class="time"><strong>5:30 PM</strong></div>
+          <div class="place">Reception — The Heritage Golf &amp; Country Club</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+<!-- Registry -->
+<section id="registry" aria-labelledby="registry-title">
+  <div class="container card registry">
+    <h2 id="registry-title">Gift Registry</h2>
+    <p>We appreciate your presence more than presents, but if you'd like to contribute:</p>
+    <ul class="registry-list">
+      <li><a href="https://www.myer.com.au/" target="_blank" rel="noopener">💰💰Main Registry💰💰</a></li>
+      <li><a href="https://example.com/registry2" target="_blank" rel="noopener">✈️✈️Honeymoon Fund✈️✈️</a></li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <section id="rsvp">
-    <h2>RSVP</h2>
-    <form id="rsvp-form">
-      <label>Name:
-        <input type="text" name="name" required autocomplete="name" />
-      </label>
+  <!-- RSVP -->
+  <section id="rsvp" aria-labelledby="rsvp-title">
+    <div class="container card">
+      <h2 id="rsvp-title">RSVP</h2>
 
-      <label>Will you attend?
-        <select name="attendance" required>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </label>
-
-      <label>Do you have any dietary requirements?
-        <select id="dietary-select" name="dietary">
-          <option value="No">No</option>
-          <option value="Yes">Yes</option>
-        </select>
-      </label>
-
-      <div id="dietary-details" style="display:none;">
-        <label>Please specify:
-          <textarea name="dietary_details" rows="2" placeholder="e.g. Gluten-free, nut allergy"></textarea>
+      <form id="rsvp-form" novalidate>
+        <label for="name">Name:
+          <input id="name" type="text" name="name" required autocomplete="name" />
         </label>
-      </div>
 
-      <!-- Honeypot for bots (keep empty) -->
-      <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off"/>
+        <label for="attendance">Will you attend?
+          <select id="attendance" name="attendance" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </label>
 
-      <button type="submit">Submit RSVP</button>
-    </form>
+        <label for="dietary-select">Do you have any dietary requirements?
+          <select id="dietary-select" name="dietary">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </label>
 
-    <p id="form-status" role="status" aria-live="polite"></p>
+        <div id="dietary-details" style="display:none;">
+          <label for="dietary_details">Please specify:
+            <textarea id="dietary_details" name="dietary_details" rows="2" placeholder="e.g. Gluten-free, nut allergy"></textarea>
+          </label>
+        </div>
+
+        <!-- Honeypot (leave empty) -->
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <button type="submit">Submit RSVP</button>
+      </form>
+
+      <p id="form-status" role="status" aria-live="polite"></p>
+    </div>
   </section>
 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Made with ❤️ by Caleb &amp; Tash</p>
+    </div>
+  </footer>
+
+  <!-- Client logic -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 // script.js
+// Wedding site client: dietary toggle + RSVP submit (always shows success if sent OK)
+
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Dietary toggle ---
+  // ------ Dietary toggle ------
   const dietarySelect = document.getElementById("dietary-select");
   const dietaryDetails = document.getElementById("dietary-details");
   const dietaryTextarea = document.querySelector('textarea[name="dietary_details"]');
@@ -15,53 +17,45 @@ document.addEventListener("DOMContentLoaded", () => {
     dietarySelect.addEventListener("change", syncDietaryVisibility);
   }
 
-  // --- Submit to Google Apps Script (FormData) ---
+  // ------ Form submit ------
   const form = document.getElementById("rsvp-form");
   const statusEl = document.getElementById("form-status");
 
-  // TODO: Replace with your *deployed* Apps Script Web App URL (ends with /exec)
+  // TODO: paste your deployed Web App URL (ends with /exec)
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykyIiLMDmdW7lzqbMWZFdx0tVj4ZQIrbpQVnJIwlPHVKBtg_7O_vCT7XHRcVIzEz3SfA/exec";
 
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (statusEl) statusEl.textContent = "Submitting…";
+  e.preventDefault();
+  statusEl.textContent = "Submitting…";
 
-    // Honeypot
-    const honeypot = form.querySelector('input[name="website"]');
-    if (honeypot && honeypot.value.trim() !== "") {
-      if (statusEl) statusEl.textContent = "Submission blocked.";
-      return;
-    }
+  const hp = form.querySelector('input[name="website"]');
+  if (hp && hp.value.trim() !== "") {
+    statusEl.textContent = "Submission blocked.";
+    return;
+  }
 
-    const fd = new FormData(form);
-    fd.append("submitted_at", new Date().toISOString());
-    fd.append("user_agent", navigator.userAgent);
+  const fd = new FormData(form);
+  fd.append("submitted_at", new Date().toISOString());
 
-    try {
-      const res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: fd });
-      const json = await res.json().catch(() => null);
 
-      if (res.ok && json && json.status === "success") {
-        if (statusEl) statusEl.textContent = "Thanks! Your RSVP has been recorded.";
-        form.reset();
-        const evt = new Event("change");
-        if (dietarySelect) dietarySelect.dispatchEvent(evt);
-      } else {
-        if (statusEl) statusEl.textContent = "Oops! Something went wrong. Please try again.";
-      }
-    } catch (err) {
-      console.error(err);
-      if (statusEl) statusEl.textContent = "Network error. Please try again.";
-    }
-  });
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      body: fd,
+      mode: "no-cors",  // ignore CORS, we can’t read response
+    });
+
+    // Brief status then redirect
+    statusEl.textContent = "Thanks! Redirecting…";
+    setTimeout(() => {
+      window.location.href = "thankyou.html";   // <- redirect target
+    }, 800); // delay so message shows briefly
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = "Network error. Please try again later.";
+  }
 });
 
-function jsonResponse(obj) {
-  return ContentService.createTextOutput(JSON.stringify(obj))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeader("Access-Control-Allow-Origin", "*")
-    .setHeader("Access-Control-Allow-Methods", "POST")
-    .setHeader("Access-Control-Allow-Headers", "Content-Type");
-}
+});
