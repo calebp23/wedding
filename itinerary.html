@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Weekend Itinerary — Caleb & Tash</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="hero"><div class="container"><h1>Weekend Itinerary</h1><div class="meta">Times & places</div></div></header>
+<nav class="top" aria-label="Primary"><div class="nav-inner">
+  <a href="index.html">Home</a><a href="dresscode.html">Dress Code</a>
+  <a href="registry.html">Registry</a><a href="itinerary.html" class="active">Weekend Itinerary</a>
+  <a href="faq.html">Q + A</a><a href="rsvp.html">RSVP</a>
+</div></nav>
+<section><div class="container"><div class="card">
+  <ul>
+    <li><strong>Friday</strong> — Welcome drinks (details to come)</li>
+    <li><strong>Saturday</strong> — Ceremony 2:00 PM; Reception 5:30 PM</li>
+    <li><strong>Sunday</strong> — Optional brunch</li>
+  </ul>
+</div></div></section>
+<footer><p>Made with ❤️ by Caleb &amp; Tash</p></footer>
+</body></html>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-inner a').forEach(a=>{
+    if (a.getAttribute('href') === here) a.classList.add('active');
+  });
+</script>

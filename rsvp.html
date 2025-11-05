@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>RSVP — Caleb & Tash</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+
+<header class="hero"><div class="container"><h1>RSVP</h1><div class="meta">We can’t wait to celebrate with you</div></div></header>
+
+<nav class="top" aria-label="Primary"><div class="nav-inner">
+  <a href="index.html">Home</a>
+  <a href="dresscode.html">Dress Code</a>
+  <a href="registry.html">Registry</a>
+  <a href="itinerary.html">Weekend Itinerary</a>
+  <a href="faq.html">Q + A</a>
+  <a href="rsvp.html" class="active">RSVP</a>
+</div></nav>
+
+<section><div class="container"><div class="card">
+  <form id="rsvp-form" novalidate>
+    <label for="name">Name:<input id="name" type="text" name="name" required autocomplete="name"></label>
+    <label for="attendance">Will you attend?
+      <select id="attendance" name="attendance" required>
+        <option value="Yes">Yes</option><option value="No">No</option>
+      </select>
+    </label>
+    <label for="dietary-select">Do you have any dietary requirements?
+      <select id="dietary-select" name="dietary">
+        <option value="No">No</option><option value="Yes">Yes</option>
+      </select>
+    </label>
+    <div id="dietary-details" style="display:none;">
+      <label for="dietary_details">Please specify:
+        <textarea id="dietary_details" name="dietary_details" rows="2" placeholder="e.g. Gluten-free, nut allergy"></textarea>
+      </label>
+    </div>
+    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off"/>
+    <button type="submit">Submit RSVP</button>
+  </form>
+  <p id="form-status" role="status" aria-live="polite"></p>
+</div></div></section>
+
+<footer><p>Made with ❤️ by Caleb &amp; Tash</p></footer>
+<script src="script.js"></script>
+</body></html>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-inner a').forEach(a=>{
+    if (a.getAttribute('href') === here) a.classList.add('active');
+  });
+</script>

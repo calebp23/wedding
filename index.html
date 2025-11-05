@@ -4,191 +4,96 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Natasha & Caleb's Wedding</title>
-  <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="shortcut icon" href="/favicon.ico">
+  <!-- Favicons -->
+<link rel="icon" href="favicon.ico?v=1">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=1">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=1">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=1">
+<link rel="manifest" href="site.webmanifest?v=1">
+<meta name="theme-color" content="#6c5ce7">
 
-
-  <!-- Meta (optional but nice) -->
-  <meta name="description" content="Caleb & Tash are getting married — details, schedule, registry and RSVP." />
-  <meta property="og:title" content="Caleb & Tash — Wedding" />
-  <meta property="og:description" content="Join us on Saturday, 21 November 2026." />
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts & Styles -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Caleb & Tash — Saturday 21 November 2026 — Warrandyte & Chirnside Park" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Base enhancements -->
-  <style>
-    header h1 { font-family: "Playfair Display", serif; }
-    html { scroll-behavior: smooth; }
-  </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <header>
+  <!-- HERO -->
+  <header class="hero">
     <div class="container">
-      <h1>Natasha &amp; Caleb</h1>
-      <p>We're getting married!</p>
-      <p class="header-date"><strong>Saturday, 21st November 2026</strong></p>
+      <div class="kicker">Our <span style="font-style:normal; opacity:.7">/</span> Day</div>
+      <div class="names">Natasha &amp; Caleb</div>
+      <div class="meta">11.21.2026 · WARRANDYTE, VIC</div>
+
+      <img class="hero-photo" src="assets/couple.jpg" alt="Caleb & Tash">
+
+      <div class="grid-two">
+        <div class="cell">NOVEMBER<br><strong>21, 2026</strong></div>
+        <div class="divider-vert" aria-hidden="true"></div>
+        <div class="cell">WARRANDYTE<br><strong>VICTORIA</strong></div>
+      </div>
+
+      <div style="margin:1.2rem 0 0;">
+        <a class="btn" href="rsvp.html">RSVP</a>
+      </div>
     </div>
   </header>
 
-  <!-- Sticky Nav -->
-  <nav aria-label="Primary">
-    <div class="nav-inner container">
-      <a href="#schedule">Schedule</a>
-      <a href="#registry">Gift Registry</a>
-      <a href="#rsvp">RSVP</a>
+  <!-- NAV (only the tabs you want) -->
+  <nav class="top" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="index.html" class="active">Home</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="registry.html">Registry</a>
+      <a href="itinerary.html">Weekend Itinerary</a>
+      <a href="faq.html">Q + A</a>
+      <a href="rsvp.html">RSVP</a>
     </div>
   </nav>
 
-  <!-- Schedule -->
-  <section id="schedule" aria-labelledby="schedule-title">
+  <!-- WEDDING DAY BLURB -->
+  <section>
     <div class="container">
-      <h2 id="schedule-title">Event Schedule</h2>
-      <ul class="schedule-list" role="list">
-        <li class="schedule-item">
-          <div class="time"><strong>2:00 PM</strong></div>
-          <div class="place">Ceremony — St Mark's Anglican, Warrandyte</div>
-        </li>
-        <li class="schedule-item">
-          <div class="time"><strong>5:30 PM</strong></div>
-          <div class="place">Reception — The Heritage Golf &amp; Country Club</div>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <!-- Locations -->
-<section id="locations" aria-labelledby="locations-title">
-  <div class="container">
-    <h2 id="locations-title">Locations</h2>
-
-    <!-- Ceremony -->
-    <div class="card" style="margin-bottom:1.25rem;">
-      <h3 style="margin-top:0;">Ceremony — St Stephen’s Anglican, Warrandyte</h3>
-      <p>4 Stiggants St, Warrandyte VIC 3113</p>
-      <div class="map">
-        <iframe
-          title="Map: St Stephen’s Anglican Warrandyte"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=St+Stephen%E2%80%99s+Anglican+Warrandyte&output=embed">
-        </iframe>
-      </div>
-      <p style="margin-top:.6rem;">
-        <a href="https://www.google.com/maps/search/?api=1&query=St+Stephen%E2%80%99s+Anglican+Warrandyte" target="_blank" rel="noopener">
-          Open in Google Maps
-        </a>
-      </p>
-    </div>
-
-    <!-- Reception -->
-    <div class="card">
-      <h3 style="margin-top:0;">Reception — The Heritage Golf &amp; Country Club</h3>
-      <p>132 Heritage Ave, Chirnside Park VIC 3116</p>
-      <div class="map">
-        <iframe
-          title="Map: The Heritage Golf and Country Club"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=The+Heritage+Golf+and+Country+Club&output=embed">
-        </iframe>
-      </div>
-      <p style="margin-top:.6rem;">
-        <a href="https://www.google.com/maps/search/?api=1&query=The+Heritage+Golf+and+Country+Club" target="_blank" rel="noopener">
-          Open in Google Maps
-        </a>
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Registry -->
-<section id="registry" aria-labelledby="registry-title">
-  <div class="container card registry">
-    <h2 id="registry-title">Gift Registry</h2>
-    <p>We appreciate your presence more than presents, but if you'd like to contribute:</p>
-    <ul class="registry-list">
-      <li><a href="https://www.myer.com.au/" target="_blank" rel="noopener">💰💰Main Registry💰💰</a></li>
-      <li><a href="https://example.com/registry2" target="_blank" rel="noopener">✈️✈️Honeymoon Fund✈️✈️</a></li>
-    </ul>
-  </div>
-</section>
-
-
-  <!-- RSVP -->
-  <section id="rsvp" aria-labelledby="rsvp-title">
-    <div class="container card">
-      <h2 id="rsvp-title">RSVP</h2>
-
-      <form id="rsvp-form" novalidate>
-        <label for="name">Name:
-          <input id="name" type="text" name="name" required autocomplete="name" />
-        </label>
-
-        <label for="attendance">Will you attend?
-          <select id="attendance" name="attendance" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </label>
-
-        <label for="dietary-select">Do you have any dietary requirements?
-          <select id="dietary-select" name="dietary">
-            <option value="No">No</option>
-            <option value="Yes">Yes</option>
-          </select>
-        </label>
-
-        <div id="dietary-details" style="display:none;">
-          <label for="dietary_details">Please specify:
-            <textarea id="dietary_details" name="dietary_details" rows="2" placeholder="e.g. Gluten-free, nut allergy"></textarea>
-          </label>
+      <div class="card">
+        <h2 style="text-align:center; letter-spacing:.15em; text-transform:uppercase;">Wedding Day</h2>
+        <div class="hr"></div>
+        <div class="details" style="text-align:center">
+          <p><strong>Saturday 21 November, 2026</strong></p>
+          <p>2:00 PM Ceremony — St Stephen’s Anglican, Warrandyte</p>
+          <p>5:30 PM Reception — The Heritage Golf &amp; Country Club, Chirnside Park</p>
+          <div class="hr"></div>
+          <p>Attire: Formal</p>
+          <p>Indoor Ceremony</p>
         </div>
-
-        <!-- Honeypot (leave empty) -->
-        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
-
-        <button type="submit">Submit RSVP</button>
-      </form>
-
-      <p id="form-status" role="status" aria-live="polite"></p>
+      </div>
     </div>
   </section>
 
-  <!-- Client logic -->
-  <script src="script.js"></script>
-</body>
-</html>
-<!-- Contact Us -->
-<section id="contact" aria-labelledby="contact-title">
-  <div class="container card" style="text-align:center;">
-    <h2 id="contact-title">Contact Us</h2>
-    <p>If you have any questions, feel free to reach out to us directly:</p>
-
-    <p style="font-size:1.1rem; margin:1rem 0;">
-      📧 <a href="mailto:youremail@example.com">natashaandcaleb@gmail.com</a><br>
-      📞 <a href="tel:+61412345678">+61 470 299 766</a>
-    </p>
-
-  
-    </p>
-  </div>
-</section>
-
-
- <!-- Footer -->
-  <footer>
+  <!-- Optional small maps on home -->
+  <section>
     <div class="container">
-      <p>Made with ❤️ by Caleb &amp; Tash</p>
+      <div class="card" style="text-align:center">
+        <h3>Locations</h3>
+        <div class="map" style="margin-top:.75rem">
+          <iframe title="St Stephen’s Anglican Warrandyte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=St+Stephen%E2%80%99s+Anglican+Warrandyte&output=embed"></iframe>
+        </div>
+        <div class="map" style="margin-top:1rem">
+          <iframe title="The Heritage Golf and Country Club" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=The+Heritage+Golf+and+Country+Club&output=embed"></iframe>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </footer>
+  <footer><p>Made with ❤️ by Caleb &amp; Tash</p></footer>
+</body>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-inner a').forEach(a=>{
+    if (a.getAttribute('href') === here) a.classList.add('active');
+  });
+</script>
+
+</html>

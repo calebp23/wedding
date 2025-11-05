@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Registry — Caleb & Tash</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="hero"><div class="container"><h1>Registry</h1><div class="meta">Your presence is the best gift</div></div></header>
+<nav class="top" aria-label="Primary"><div class="nav-inner">
+  <a href="index.html">Home</a><a href="dresscode.html">Dress Code</a>
+  <a href="registry.html" class="active">Registry</a><a href="itinerary.html">Weekend Itinerary</a>
+  <a href="faq.html">Q + A</a><a href="rsvp.html">RSVP</a>
+</div></nav>
+<section><div class="container"><div class="card" style="text-align:center">
+  <p><a class="btn" href="https://www.myer.com.au/" target="_blank" rel="noopener">Main Registry</a></p>
+  <p style="margin-top:.8rem"><a href="https://example.com/registry2" target="_blank" rel="noopener">Alternative Registry</a></p>
+  <p style="margin-top:1rem; color:var(--muted)">A honeymoon contribution is also warmly appreciated.</p>
+</div></div></section>
+<footer><p>Made with ❤️ by Caleb &amp; Tash</p></footer>
+</body></html>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-inner a').forEach(a=>{
+    if (a.getAttribute('href') === here) a.classList.add('active');
+  });
+</script>

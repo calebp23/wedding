@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Dress Code — Caleb & Tash</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="hero"><div class="container"><h1>Dress Code</h1><div class="meta">In-depth details</div></div></header>
+<nav class="top" aria-label="Primary"><div class="nav-inner">
+  <a href="index.html">Home</a><a href="dresscode.html" class="active">Dress Code</a>
+  <a href="registry.html">Registry</a><a href="itinerary.html">Weekend Itinerary</a>
+  <a href="faq.html">Q + A</a><a href="rsvp.html">RSVP</a>
+</div></nav>
+<section><div class="container"><div class="card">
+  <h3>Attire: Cocktail</h3>
+  <p>Gentlemen: suit or blazer (tie optional). Ladies: cocktail dress or elegant separates.</p>
+  <p>Outdoor ceremony — consider block heels.</p>
+</div></div></section>
+<footer><p>Made with ❤️ by Caleb &amp; Tash</p></footer>
+</body></html>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-inner a').forEach(a=>{
+    if (a.getAttribute('href') === here) a.classList.add('active');
+  });
+</script>
