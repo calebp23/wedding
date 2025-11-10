@@ -60,12 +60,21 @@ nav.top{
 .nav-inner a:hover{ color:var(--ink) }
 .nav-inner a.active{ color:var(--accent); border-color:var(--accent) }
 
-/* Hero photo */
-.hero-photo{
-  width:100%; max-width:820px; aspect-ratio:3/2; object-fit:cover;
-  border-radius:8px; border:1px solid var(--line); box-shadow:var(--shadow);
-  display:block; margin:1.2rem auto 0;
+.hero-photo {
+  width: 100%;
+  max-width: 820px;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: center top;   /* 👈 this moves the crop upward */
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 1.2rem auto 0;
+  object-position: center 10%;
+
 }
+
 
 /* Two cols (date / city) */
 .grid-two{
@@ -157,3 +166,89 @@ footer{ text-align:center; color:var(--muted); padding:2.5rem 1rem 3rem }
 #rsvp-form button:hover {
   filter: brightness(0.9);
 }
+
+/* ===== Subtle bottom photo for content pages ===== */
+.page-photo {
+  display: block;
+  width: 100%;
+  max-width: 820px;
+  margin: 2.5rem auto 0;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+  aspect-ratio: 16 / 9;       /* tweak if needed */
+}
+
+/* --- Per-page photo focus controls --- */
+
+/* Dress Code page: focus higher (e.g., 20% from top) */
+.page-photo-dress {
+  object-position: center 20%;
+}
+
+/* Registry page: keep centered */
+.page-photo-registry {
+  object-position: center 80%;
+}
+
+/* FAQ page: focus toward top edge */
+.page-photo-faq {
+  object-position: center 33%;
+}
+
+/* RSVP page: slightly below center */
+.page-photo-rsvp {
+  object-position: center 60%;
+}
+
+/* ===== Itinerary two-column layout ===== */
+.itinerary-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;   /* make photo twice as wide */
+  gap: 2rem;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+/* Left-side photo */
+.itinerary-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 70%;   /* adjust to focus area */
+  aspect-ratio: auto;            /* let the grid control height */
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+
+/* Right-side text */
+.itinerary-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.itinerary-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itinerary-text li {
+  margin: 0.5rem 0;
+}
+
+/* Mobile-friendly fallback */
+@media (max-width: 720px) {
+  .itinerary-grid {
+    grid-template-columns: 1fr;
+  }
+  .itinerary-photo {
+    aspect-ratio: 16 / 9;
+  }
+}
+
