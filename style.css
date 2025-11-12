@@ -142,6 +142,7 @@ footer{ text-align:center; color:var(--muted); padding:2.5rem 1rem 3rem }
 }
 
 #rsvp-form input[type="text"],
+#rsvp-form input[type="email"],
 #rsvp-form select,
 #rsvp-form textarea {
   margin-top: .35rem;
