@@ -1,59 +1,104 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>RSVP — Caleb & Tash</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RSVP — Caleb & Tash</title>
 
-<header class="hero"><div class="container"><h1>RSVP</h1><div class="meta">We can’t wait to celebrate with you</div></div></header>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
 
+  <header class="hero">
+    <div class="container">
+      <h1>RSVP</h1>
+      <div class="meta">We can’t wait to celebrate with you</div>
+    </div>
+  </header>
 
-<nav class="top" aria-label="Primary"><div class="nav-inner">
-  <a href="index.html">Home</a>
-  <a href="dresscode.html">Dress Code</a>
-  <a href="registry.html">Registry</a>
-  <a href="itinerary.html">Weekend Itinerary</a>
-  <a href="faq.html">Q + A</a>
-  <a href="rsvp.html" class="active">RSVP</a>
-</div></nav>
+  <nav class="top" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="registry.html">Registry</a>
+      <a href="itinerary.html">Weekend Itinerary</a>
+      <a href="faq.html">Q + A</a>
+      <a href="rsvp.html" class="active">RSVP</a>
+    </div>
+  </nav>
 
-<section><div class="container"><div class="card">
-  <form id="rsvp-form" novalidate>
-    <label for="name">Name:<input id="name" type="text" name="name" required autocomplete="name"></label>
-    <label for="email">Email:
-  <input id="email" type="email" name="email" required autocomplete="email" />
+  <section>
+    <div class="container">
+      <div class="card">
+        <form id="rsvp-form" novalidate>
+
+          <!-- Name from guest list -->
+          <label for="name-input">Name:
+  <input
+    id="name-input"
+    name="name"
+    type="text"
+    list="guest-list"
+    required
+    autocomplete="off"
+    placeholder="Start typing your name…"
+  />
+  <datalist id="guest-list"></datalist>
 </label>
 
-    <label for="attendance">Will you attend?
-      <select id="attendance" name="attendance" required>
-        <option value="Yes">Yes</option><option value="No">No</option>
-      </select>
-    </label>
-    <label for="dietary-select">Do you have any dietary requirements?
-      <select id="dietary-select" name="dietary">
-        <option value="No">No</option><option value="Yes">Yes</option>
-      </select>
-    </label>
-    <div id="dietary-details" style="display:none;">
-      <label for="dietary_details">Please specify:
-        <textarea id="dietary_details" name="dietary_details" rows="2" placeholder="e.g. Gluten-free, nut allergy"></textarea>
-      </label>
-    </div>
-    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off"/>
-    <button type="submit">Submit RSVP</button>
-  </form>
-  <p id="form-status" role="status" aria-live="polite"></p>
-</div></div></section>
 
-</div>
-    <img class="page-photo" src="assets/rsvp.jfif" alt="Gift table or flowers">
-  </div>
-<footer><p>© 2026 Caleb & Tash — A Proud Subsidiary of Eternal Partnership Holdings.</p></footer>
-<script src="script.js"></script>
-</body></html>
-<script>
-  const here = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-inner a').forEach(a=>{
-    if (a.getAttribute('href') === here) a.classList.add('active');
-  });
-</script>
+          <label for="email">Email:
+            <input id="email" type="email" name="email" required autocomplete="email" placeholder="you@email.com" />
+          </label>
+
+          <label for="attendance">Will you attend?
+            <select id="attendance" name="attendance" required>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </label>
+
+          <label for="dietary-select">Do you have any dietary requirements?
+            <select id="dietary-select" name="dietary">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </label>
+
+          <div id="dietary-details" style="display:none;">
+            <label for="dietary_details">Please specify:
+              <textarea id="dietary_details" name="dietary_details" rows="2" placeholder="e.g. Gluten-free, nut allergy"></textarea>
+            </label>
+          </div>
+
+          <!-- Honeypot -->
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <button type="submit">Submit RSVP</button>
+        </form>
+
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <!-- Subtle page photo under the info -->
+      <img class="page-photo page-photo-rsvp" src="assets/rsvp.jfif" alt="Caleb & Tash" />
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Caleb &amp; Tash — A Proud Subsidiary of Eternal Partnership Holdings.</p>
+  </footer>
+
+  <script src="script.js?v=1"></script>
+
+  <!-- Auto-highlight active tab (safe placement: inside body) -->
+  <script>
+    const here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-inner a').forEach(a => {
+      if (a.getAttribute('href') === here) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>
