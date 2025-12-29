@@ -63,7 +63,7 @@ h3 {
 }
 /* Wider container just for the itinerary page */
 .itinerary-container {
-  max-width: 1120px; /* wider than your default 920px */
+  max-width: 1290px; /* wider than your default 920px */
 }
 
 section{ padding:2rem 0 }
