@@ -24,25 +24,46 @@ a, button, input, select, textarea {
 }
 
 /* Typography */
-h1,h2,h3{
-  font-family:"Playfair Display",ui-serif,Georgia,serif;
-  letter-spacing:.02em;
-  color:var(--ink);
-  margin:0 0 .5rem;
+/* ===== Headings ===== */
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--ink);
+  margin: 0 0 .6rem;
 }
-h1{font-size:clamp(2.2rem,3.2vw + 1rem,3.1rem)}
-h2{font-size:clamp(1.4rem,1.1vw + 1rem,1.8rem)}
-h3{
-  font-size:1.15rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+
+/* Big page titles: Registry, Dress Code, RSVP, etc. */
+h1 {
+  font-size: clamp(2.1rem, 3vw + 1rem, 3rem);
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-align: center;
 }
+
+/* Section titles: Wedding Day, Locations, etc. */
+h2 {
+  font-size: clamp(1.4rem, 1.2vw + 1rem, 1.9rem);
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-align: center;
+}
+
+/* Small headings / labels */
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+}
+
 
 /* Layout */
 .container{
   max-width:var(--maxw);
   margin:0 auto;
   padding:0 1rem;
+}
+/* Wider container just for the itinerary page */
+.itinerary-container {
+  max-width: 1120px; /* wider than your default 920px */
 }
 
 section{ padding:2rem 0 }
@@ -55,6 +76,28 @@ section{ padding:2rem 0 }
   padding:1.5rem;
 }
 
+/* ===== Countdown ===== */
+.countdown-card {
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+}
+
+.countdown-label {
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .5rem;
+}
+
+.countdown {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: .14em;
+  color: var(--ink);
+}
+
+
 /* ===== Hero ===== */
 header.hero{
   text-align:center;
@@ -62,27 +105,31 @@ header.hero{
 }
 
 .hero .kicker{
-  font-family:"Playfair Display",serif;
-  font-style:italic;
-  color:var(--muted);
-  letter-spacing:.12em;
-  text-transform:lowercase;
-  font-size:1.5rem;
+  font-family: "Monsieur La Doulaise", cursive;
+  font-style: normal;
+  color: var(--muted);
+  letter-spacing: .04em;
+  text-transform: none;
+  font-size: 2.4rem;
 }
 
 .hero .names{
-  font-size:2.2rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
 .meta{
+  font-family: "Cormorant Garamond", serif;
   margin:.35rem 0 0;
   color:var(--muted);
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-size:.9rem;
+  letter-spacing:.24em;
+  text-transform:none;
+  font-size:1rem;
 }
+
 
 /* Hero photo */
 .hero-photo{
@@ -148,10 +195,13 @@ nav.top{
 }
 
 .grid-two .cell{
+  font-family: "Cormorant Garamond", serif;
   text-align:center;
-  letter-spacing:.18em;
-  text-transform:uppercase;
+  letter-spacing:.22em;
+  text-transform:none;
+  font-weight: 500;
 }
+
 
 .divider-vert{
   height:40px;
@@ -240,7 +290,7 @@ nav.top{
 /* ===== Itinerary Layout ===== */
 .itinerary-grid{
   display:grid;
-  grid-template-columns:2fr 1fr;
+  grid-template-columns:1fr 1fr;
   gap:2rem;
   align-items:center;
 }
@@ -252,12 +302,20 @@ nav.top{
   object-position:center 70%;
   border:1px solid var(--line);
   box-shadow:var(--shadow);
+  max-width: 600px;
 }
 
 .itinerary-text ul{
   list-style:none;
   padding:0;
   margin:0;
+}
+.itinerary-text ul.sub {
+  margin: .55rem 0 .75rem 1.25rem; /* controls indent */
+  padding-left: 0;
+  list-style: circle; /* or circle, or none */
+  color: var(--muted);
+  font-size: .95rem;
 }
 
 .itinerary-text li{ margin:.5rem 0 }
@@ -273,4 +331,20 @@ footer{
   text-align:center;
   color:var(--muted);
   padding:2.5rem 1rem 3rem;
+}
+
+.about-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem; /* space between photos */
+  max-width: 820px; /* matches your theme’s photo width */
+  margin: 2rem auto;
+}
+
+.about-photos img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  object-fit: cover;
 }

@@ -14,7 +14,7 @@
 
   <meta name="description" content="Caleb & Tash — Saturday 21 November 2026 — Kew & Chirnside Park" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,16 +22,16 @@
   <!-- HERO -->
   <header class="hero">
     <div class="container">
-      <div class="kicker">The Wedding Of <span style="font-style:normal; opacity:.7"></span></div>
+      <div class="kicker">The wedding of <span style="font-style:normal; opacity:.7"></span></div>
       <div class="names">Natasha &amp; Caleb</div>
-      <div class="meta">21.11.2026 · Kew, VIC</div>
+      <div class="meta">21.11.2026 · Canterbury, VIC</div>
 
       <img class="hero-photo" src="assets/couple.jfif" alt="Caleb & Tash">
 
       <div class="grid-two">
-        <div class="cell">NOVEMBER<br><strong>21, 2026</strong></div>
+        <div class="cell">November<br><strong>21, 2026</strong></div>
         <div class="divider-vert" aria-hidden="true"></div>
-        <div class="cell">KEW<br><strong>VICTORIA</strong></div>
+        <div class="cell">Canterbury<br><strong>Victoria</strong></div>
       </div>
 
       <div style="margin:1.2rem 0 0;">
@@ -44,6 +44,7 @@
   <nav class="top" aria-label="Primary">
     <div class="nav-inner">
       <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
       <a href="dresscode.html">Dress Code</a>
       <a href="registry.html">Registry</a>
       <a href="itinerary.html">Weekend Itinerary</a>
@@ -52,15 +53,24 @@
     </div>
   </nav>
 
+<!-- COUNTDOWN -->
+<section>
+  <div class="container">
+    <div class="card countdown-card">
+      <div class="countdown-label">Counting down to</div>
+      <div id="countdown" class="countdown"></div>
+    </div>
+  </div>
+</section>
+
   <!-- WEDDING DAY BLURB -->
   <section>
     <div class="container">
       <div class="card">
-        <h2 style="text-align:center; letter-spacing:.15em; text-transform:uppercase;">Wedding Day</h2>
+        <h2 style="text-align:center; letter-spacing:.15em;">Wedding Day</h2>
         <div class="hr"></div>
         <div class="details" style="text-align:center">
-          <p><strong>Saturday 21 November, 2026</strong></p>
-          <p>2:00 PM Ceremony — Kew Baptist Church</p>
+          <p>2:00 PM Ceremony — Canterbury Balwyn Rd Uniting Church</p>
           <p>5:30 PM Reception — The Heritage Golf &amp; Country Club, Chirnside Park</p>
           <div class="hr"></div>
           <p>Attire: Formal</p>
@@ -74,10 +84,10 @@
   <section>
     <div class="container">
       <div class="card" style="text-align:center">
-        <h3>Locations</h3>
+        <h2>Locations</h2>
         <div class="map" style="margin-top:.75rem">
-          <iframe title="St Stephen’s Anglican Warrandyte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Kew+Baptist+Church&output=embed"></iframe>
+          <iframe title="Canterbury Balwyn Rd Uniting Church" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Canterbury+Balwyn+Uniting+Church&output=embed"></iframe>
         </div>
         <div class="map" style="margin-top:1rem">
           <iframe title="The Heritage Golf and Country Club" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -87,8 +97,35 @@
     </div>
   </section>
 
-  <footer><p>© 2026 Caleb & Tash — A Proud Subsidiary of Eternal Partnership Holdings.</p></footer>
+  <footer><p>© 2026 Caleb & Tash</p></footer>
 </body>
+<script>
+  const weddingDate = new Date("2026-11-21T14:00:00+11:00"); // 2:00 PM AEDT
+
+  const countdownEl = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = "Today’s the day!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownEl.textContent =
+      `${days} Days · ${hours} Hours · ${minutes} Minutes · ${seconds} Seconds`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
 <script>
   const here = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-inner a').forEach(a=>{
