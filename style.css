@@ -327,14 +327,10 @@ nav.top{
 }
 
 @media (max-width:720px){
-  .itinerary-grid {
-    grid-template-columns: 1fr;
-  }
-
   .itinerary-photo {
-    max-width: 100%;        /* let it fill the mobile width */
-    aspect-ratio: 3 / 2;    /* softer, more natural crop */
-    object-position: center; /* no more 70% upward crop */
+    object-position: center top; /* show the top of the image */
+    aspect-ratio: 3 / 2;         /* optional: keeps it neat on phones */
+    max-width: 100%;
   }
 }
 
