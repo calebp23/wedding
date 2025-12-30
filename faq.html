@@ -1,29 +1,91 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Q + A — Caleb & Tash</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
-<header class="hero"><div class="container"><h1>Q + A</h1><div class="meta">Frequently asked questions</div></div></header>
-<nav class="top" aria-label="Primary"><div class="nav-inner">
-  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="itinerary.html">Weekend Itinerary</a>
-  <a href="dresscode.html">Dress Code</a>
-  <a href="registry.html">Registry</a>
-  <a href="faq.html" class="active">Q + A</a><a href="rsvp.html">RSVP</a>
-</div></nav>
-<section><div class="container"><div class="card">
-  <h3>What time should I arrive?</h3><p>Please arrive by 1:30 PM for a 2:00 PM start.</p>
-  <div class="hr"></div>
-  <h3>Is there parking?</h3><p>Yes, parking is available at both venues.</p>
-</div></div></section>
-</div>
-    <img class="page-photo page-photo-faq" src="assets/qanda.jfif" alt="Guests enjoying the evening">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Q + A — Caleb & Tash</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1>Q + A</h1>
+    <div class="meta">Important information</div>
   </div>
-<footer><p>© 2026 Natasha & Caleb</p></footer>
-</body></html>
+</header>
+
+<nav class="top" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="itinerary.html">Weekend Itinerary</a>
+    <a href="dresscode.html">Dress Code</a>
+    <a href="registry.html">Registry</a>
+    <a href="faq.html" class="active">Q + A</a>
+    <a href="rsvp.html">RSVP</a>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="card">
+
+      <h2 style="text-align:left; margin-bottom:1.5rem;">Invites</h2>
+
+      <h3>Can I bring a plus one?</h3>
+      <p>We are unable to accommodate plus-ones and kindly ask that only those specifically named attend.</p>
+      <div class="hr"></div>
+
+      <h3>Can I bring my kids?</h3>
+      <p>We politely request no children attend the ceremony or reception. Thank you in advance for understanding.</p>
+      <div class="hr"></div>
+
+      <h3>When should I RSVP by?</h3>
+      <p>We kindly ask all guests to RSVP via our website by October 10th, 2026.</p>
+
+      <div class="hr" style="margin:2rem 0;"></div>
+
+      <h2 style="text-align:left; margin-bottom:1.5rem;">Transportation</h2>
+
+      <h3>Where are the venues?</h3>
+      <p>Please see the ceremony and reception locations on our <a href="itinerary.html">Weekend Itinerary</a> page.</p>
+      <div class="hr"></div>
+
+      <h3>Is there parking?</h3>
+      <p>Yes — both venues offer parking for guests.</p>
+      <div class="hr"></div>
+
+      <h3>How do we get between venues?</h3>
+      <p>The ceremony and reception locations are approximately a 40‑minute drive apart. We encourage guests to organise transport ahead of time.</p>
+      <div class="hr"></div>
+
+      <h3>Is the reception venue accessible?</h3>
+      <p>The canapés and dinner area is up a staircase on the left. An elevator is available to the right for guests who need it.</p>
+      <div class="hr"></div>
+
+      <h3>Is there accommodation?</h3>
+      <p>Yarra Valley Lodge — where the welcome drinks and after‑party are hosted — has hotel rooms available for guests who wish to stay onsite.</p>
+
+    </div>
+  </div>
+</section>
+
+<img class="page-photo page-photo-faq" src="assets/qanda.jfif" alt="Guests enjoying the evening">
+
+<footer>
+  <p>© 2026 Natasha & Caleb</p>
+</footer>
+
 <script>
   const here = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-inner a').forEach(a=>{
     if (a.getAttribute('href') === here) a.classList.add('active');
   });
 </script>
+
+</body>
+</html>
