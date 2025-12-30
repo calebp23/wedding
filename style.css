@@ -326,6 +326,18 @@ nav.top{
   .itinerary-photo{ aspect-ratio:16 / 9 }
 }
 
+@media (max-width:720px){
+  .itinerary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .itinerary-photo {
+    max-width: 100%;        /* let it fill the mobile width */
+    aspect-ratio: 3 / 2;    /* softer, more natural crop */
+    object-position: center; /* no more 70% upward crop */
+  }
+}
+
 /* Footer */
 footer{
   text-align:center;
@@ -347,4 +359,11 @@ footer{
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   object-fit: cover;
+}
+
+.hero-photo,
+.page-photo,
+.itinerary-photo,
+.about-photos img {
+  border-radius: 0;
 }
