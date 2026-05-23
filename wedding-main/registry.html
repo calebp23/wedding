@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Registry — Caleb & Tash</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="hero"><div class="container"><h1>Registry</h1><div class="meta">Your presence is the best gift</div></div></header>
+<nav class="top" aria-label="Primary"><div class="nav-inner">
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="itinerary.html">Weekend Itinerary</a>
+  <a href="dresscode.html">Dress Code</a>
+  <a href="registry.html" class="active">Registry</a>
+  <a href="faq.html">Q + A</a><a href="rsvp.html">RSVP</a>
+</div></nav>
+<section><div class="container"><div class="card" style="text-align:center">
+  <p>Your love and support mean the world to us. Should you wish to contribute a gift, we’ve included a registry for your convenience</p>
+  <p><a class="btn" href="https://www.myregistry.com/wedding-registry/caleb-tash-and-natasha-khong-/5454164" target="_blank" rel="noopener">Gift Registry</a></p>
+  <p style="margin-top:1rem; color:var(--muted)">Thank you for your contributions!</p>
+</div></div></section>  
+</div>
+    <img class="page-photo page-photo-registry" src="assets/registry.jfif" alt="Guests enjoying the evening">
+  </div>
+<footer><p>© 2026 Natasha & Caleb</p></footer>
+</body></html>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-inner a').forEach(a=>{
+    if (a.getAttribute('href') === here) a.classList.add('active');
+  });
+</script>

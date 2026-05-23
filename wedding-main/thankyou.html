@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You - Caleb & Tash</title>
+
+  <!-- Fonts (match site theme) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicons (use relative paths for GitHub Pages project sites) -->
+  <link rel="icon" href="favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=1">
+  <link rel="manifest" href="site.webmanifest?v=1">
+  <meta name="theme-color" content="#6c5ce7">
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Page-specific tiny tweaks */
+    .thankyou-wrap { text-align: center; }
+    .thankyou-wrap p { margin: .35rem 0; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero header (matches site) -->
+  <header class="hero">
+    <div class="container">
+      <h1>Thank You</h1>
+      <div class="meta">Your RSVP has been received</div>
+    </div>
+  </header>
+
+  <!-- (Optional) compact nav – keep it simple on this page -->
+  <nav class="top" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="registry.html">Registry</a>
+      <a href="itinerary.html">Weekend Itinerary</a>
+      <a href="faq.html">Q + A</a>
+      <a href="rsvp.html">RSVP</a>
+    </div>
+  </nav>
+
+  <section>
+    <div class="container">
+      <div class="card thankyou-wrap">
+        <h3 style="letter-spacing:.12em">We can’t wait to celebrate with you</h3>
+        <p>Saturday 21 November, 2026</p>
+        <p>Highfield Rd Uniting Church · The Heritage Golf &amp; Country Club</p>
+
+        <div style="margin-top:1.2rem;">
+          <a class="btn" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><p>© 2026 Caleb & Tash</p></footer>
+
+  <!-- Auto-highlight current nav -->
+  <script>
+    const here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-inner a').forEach(a=>{
+      if (a.getAttribute('href') === here) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>
