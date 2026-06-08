@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const APPS_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbykyIiLMDmdW7lzqbMWZFdx0tVj4ZQIrbpQVnJIwlPHVKBtg_7O_vCT7XHRcVIzEz3SfA/exec";
+    "https://script.google.com/macros/s/AKfycbzDoT3NkPRc07SfJNFoe5EOXwOryUUazOOn_vPLKJe0eTKr8kmjEn-trrdr6sTLBbAUNg/exec";
 
   // ---------- Elements ----------
   const form = document.getElementById("rsvp-form");
