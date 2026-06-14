@@ -6,7 +6,7 @@
   <title>RSVP — Caleb & Tash</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Cormorant+Garamond:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
@@ -14,7 +14,7 @@
   <header class="hero">
     <div class="container">
       <h1>RSVP</h1>
-      <div class="meta">We can’t wait to celebrate with you</div>
+      <div class="meta">We can't wait to celebrate with you</div>
     </div>
   </header>
 
@@ -24,7 +24,7 @@
       <a href="about.html">About Us</a>
       <a href="itinerary.html">Weekend Itinerary</a>
       <a href="dresscode.html">Dress Code</a>
-      <a href="registry.html">Registry</a>      
+      <a href="registry.html">Registry</a>
       <a href="faq.html">Q + A</a>
       <a href="rsvp.html" class="active">RSVP</a>
     </div>
@@ -35,33 +35,31 @@
       <div class="card">
         <form id="rsvp-form" novalidate>
 
-          <!-- Name from guest list -->
           <label for="name-input">Name:
-  <input
-    id="name-input"
-    name="name"
-    type="text"
-    list="guest-list"
-    required
-    autocomplete="off"
-    placeholder="Start typing your name…"
-  />
-  <datalist id="guest-list"></datalist>
-</label>
-
+            <input
+              id="name-input"
+              name="name"
+              type="text"
+              list="guest-list"
+              required
+              autocomplete="off"
+              placeholder="Start typing your name…"
+            />
+            <datalist id="guest-list"></datalist>
+          </label>
 
           <label for="email">Email:
             <input id="email" type="email" name="email" required autocomplete="email" placeholder="you@email.com" />
           </label>
 
-          <label for="attendance">Will you attend Friday Welcome Drinks?
-            <select id="attendance" name="Friday Drinks" required>
+          <label for="friday-drinks">Will you attend Friday welcome drinks?
+            <select id="friday-drinks" name="friday_drinks" required>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
           </label>
 
-          <label for="attendance">Will you attend the reception?
+          <label for="attendance">Will you attend the Saturday reception?
             <select id="attendance" name="attendance" required>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -90,7 +88,6 @@
         <p id="form-status" role="status" aria-live="polite"></p>
       </div>
 
-      <!-- Subtle page photo under the info -->
       <img class="page-photo page-photo-rsvp" src="assets/rsvp.jfif" alt="Caleb & Tash" />
     </div>
   </section>
@@ -101,12 +98,12 @@
 
   <script src="script.js?v=1"></script>
 
-  <!-- Auto-highlight active tab (safe placement: inside body) -->
   <script>
     const here = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-inner a').forEach(a => {
       if (a.getAttribute('href') === here) a.classList.add('active');
     });
   </script>
+
 </body>
 </html>
