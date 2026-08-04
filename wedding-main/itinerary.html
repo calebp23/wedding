@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Weekend Itinerary - Caleb & Tash</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="hero"><div class="container"><h1>Weekend Itinerary</h1><div class="meta">Times & places</div></div></header>
+<nav class="top" aria-label="Primary"><div class="nav-inner">
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="itinerary.html" class="active">Weekend Itinerary</a>
+  <a href="dresscode.html">Dress Code</a>
+  <a href="registry.html">Registry</a>
+  <a href="faq.html">Q + A</a><a href="rsvp.html">RSVP</a>
+</div></nav>
+<section>
+  <div class="container itinerary-container">
+    <div class="itinerary-grid card">
+      <img class="itinerary-photo" src="assets/itinerary.jfif" alt="Sunset at the venue">
+      
+      <div class="itinerary-text">
+  <h3>Friday 20th November</h3>
+<ul>
+  <li>Welcome drinks <br> Yarra Valley Lodge | 5-8pm
+    <ul class="sub">
+      <li>Join us the evening before the wedding for a relaxed get-together to kick off the celebrations! Feel free to drop by before or after your dinner plans or enjoy dinner at the Bella restaurant onsite before joining us for drinks. There are no formalities and no pressure—just a chance to catch up with family and friends, meet other guests, and start celebrating together.</li>
+      <li>We can't wait to see you! Please note that drinks will be available from 5-8pm, and the couple will be dining at the Bella Restaurant afterwards at 8pm Details: Friday 20th November, 2026 | 5pm-8pm.</li>
+      <li>Venue: Lodge Bar and Lodge Terrace | Yarra Valley Lodge Address: 2 Heritage Ave, Chirnside Park VIC 3116</li>
+      <li>Dress code: Cocktail attire requested, however come as you are-we’d love to see everyone!</li>
+      <li>RSVP: Please let us know if you'll be joining us for welcome drinks by September 26 via the RSVP link on the website. Dinner (Optional): If you'd like to have dinner before joining us for drinks, you're welcome to dine at the restaurant. We recommend making a reservation if you'd like to eat there.</li>
+    </ul>
+  </li>
+</ul>
+
+
+  <h3>Saturday 21st November</h3>
+  <ul>
+    <li>Ceremony <br> Highfield Rd Uniting Church | 11:30am</li>
+    <ul class="sub">
+      <li>Guests are to be seated at 11:30 AM, with the ceremony beginning at 12:00 PM.</li>
+      <li>Parking is available both onsite and along the street.</li>  
+      <li>We’d love for everyone to stay for a light afternoon tea following the ceremony.</li>    
+    </ul>
+    <li>Reception <br> Heritage Golf and Country Club | The Yarra Room | 5pm</li>
+    <ul class="sub">
+      <li>Please join us from 5:00 PM for roaming canapés and drinks.</li>      
+      <li>Guests are invited to be seated by 6:00 PM for the couple’s entrance at 6:15 PM.</li>
+      <li>The evening will conclude at 11:00 PM.</li>    
+    </ul>
+  </ul>
+</div>
+    </div>
+  </div>
+</section>
+<footer><p>© 2026 Natasha & Caleb</p></footer>
+</body></html>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-inner a').forEach(a=>{
+    if (a.getAttribute('href') === here) a.classList.add('active');
+  });
+</script>
