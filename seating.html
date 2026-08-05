@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find Your Table — Natasha & Caleb</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Cormorant+Garamond:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #4b4a47;
+      --muted: #8b8884;
+      --bg: #fffefc;
+      --accent: #6b635a;
+      --line: #e9e7e4;
+      --shadow: 0 6px 18px rgba(0,0,0,.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font: 17px/1.75 "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+    }
+
+    .kicker {
+      font-family: "Monsieur La Doulaise", cursive;
+      color: var(--muted);
+      font-size: 2rem;
+      margin-bottom: .25rem;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
+
+    .subtitle {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--muted);
+      letter-spacing: .18em;
+      font-size: .95rem;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      color: var(--ink);
+      text-align: left;
+      margin-bottom: .35rem;
+      font-size: .95rem;
+      letter-spacing: .04em;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: .65rem .85rem;
+      border: 1px solid var(--line);
+      font: inherit;
+      font-size: 1rem;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+      transition: border-color .2s;
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--accent);
+    }
+
+    /* Custom dropdown */
+    .dropdown-wrap {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: none;
+      max-height: 220px;
+      overflow-y: auto;
+      z-index: 100;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+
+    .suggestions.open { display: block; }
+
+    .suggestions li {
+      list-style: none;
+      padding: .6rem .85rem;
+      cursor: pointer;
+      text-align: left;
+      font-size: .95rem;
+      transition: background .15s;
+    }
+
+    .suggestions li:hover,
+    .suggestions li.active {
+      background: var(--bg);
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .75rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .82rem;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: filter .2s;
+    }
+
+    .btn:hover { filter: brightness(.92); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; filter: none; }
+
+    /* Result */
+    .result {
+      display: none;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .result.show { display: block; }
+
+    .result-label {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: .5rem;
+    }
+
+    .table-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.5rem, 10vw, 5rem);
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: .05em;
+    }
+
+    .guest-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      color: var(--muted);
+      margin-top: .5rem;
+      letter-spacing: .08em;
+    }
+
+    .error-msg {
+      display: none;
+      color: #c0392b;
+      font-size: .9rem;
+      margin-top: .75rem;
+    }
+
+    .error-msg.show { display: block; }
+
+    .loading {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: .75rem;
+      display: none;
+    }
+
+    .loading.show { display: block; }
+
+    footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: .85rem;
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="kicker">Natasha & Caleb</div>
+    <h1>Find Your Table</h1>
+    <div class="subtitle">21 · 11 · 2026</div>
+
+    <label for="name-input">Start typing your name</label>
+    <div class="dropdown-wrap">
+      <input
+        type="text"
+        id="name-input"
+        autocomplete="off"
+        placeholder="e.g. Jane Smith"
+        aria-autocomplete="list"
+        aria-controls="suggestions-list"
+      />
+      <ul class="suggestions" id="suggestions-list" role="listbox"></ul>
+    </div>
+
+    <button class="btn" id="lookup-btn" disabled>Find My Table</button>
+
+    <div class="loading" id="loading">Looking up your table…</div>
+    <div class="error-msg" id="error-msg"></div>
+
+    <div class="result" id="result">
+      <div class="result-label">Your table</div>
+      <div class="table-number" id="table-number"></div>
+      <div class="guest-name" id="guest-name-display"></div>
+    </div>
+  </div>
+
+  <footer>© 2026 Natasha & Caleb</footer>
+
+  <script>
+    const SHEET_ID = '1aZisXnneSxKHx6qnu6MOLopbub2toed9mheqc7TxnnM';
+    const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+
+    let guests = []; // { name, table }
+    let selectedName = '';
+
+    // ── Fetch sheet data ──────────────────────────────────────────
+    async function loadGuests() {
+      try {
+        const res = await fetch(CSV_URL);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+
+        const lines = text.trim().split('\n');
+        if (lines.length < 2) throw new Error('Sheet appears empty');
+
+        // Parse CSV header row to find columns by name
+        const headers = parseCSVRow(lines[0]).map(h => h.toLowerCase());
+        const nameIdx  = headers.findIndex(h => h.includes('name'));
+        const tableIdx = headers.findIndex(h => h.includes('table'));
+
+        console.log('Headers:', headers);
+        console.log('Name col:', nameIdx, '| Table col:', tableIdx);
+
+        if (nameIdx === -1 || tableIdx === -1) {
+          throw new Error('Could not find Name or Table Number columns in sheet');
+        }
+
+        guests = lines.slice(1)
+          .map(line => {
+            const cols = parseCSVRow(line);
+            return {
+              name:  (cols[nameIdx]  ?? '').trim(),
+              table: (cols[tableIdx] ?? '').trim()
+            };
+          })
+          .filter(g => g.name);
+
+        console.log(`Loaded ${guests.length} guests`);
+
+      } catch (e) {
+        console.error('Failed to load guest list', e);
+        showError('Could not load guest list — please ask one of our helpers.');
+      }
+    }
+
+    // Simple CSV row parser (handles quoted fields)
+    function parseCSVRow(row) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < row.length; i++) {
+        const ch = row[i];
+        if (ch === '"') {
+          inQuotes = !inQuotes;
+        } else if (ch === ',' && !inQuotes) {
+          result.push(current);
+          current = '';
+        } else {
+          current += ch;
+        }
+      }
+      result.push(current);
+      return result;
+    }
+
+    // ── Autocomplete ──────────────────────────────────────────────
+    const input = document.getElementById('name-input');
+    const suggestionsList = document.getElementById('suggestions-list');
+    const lookupBtn = document.getElementById('lookup-btn');
+    let activeIndex = -1;
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      selectedName = '';
+      lookupBtn.disabled = true;
+      clearResult();
+
+      if (!q) { closeSuggestions(); return; }
+
+      const matches = guests.filter(g => g.name.toLowerCase().includes(q)).slice(0, 8);
+      if (!matches.length) { closeSuggestions(); return; }
+
+      suggestionsList.innerHTML = matches.map((g, i) =>
+        `<li role="option" data-name="${g.name}" data-index="${i}">${g.name}</li>`
+      ).join('');
+      suggestionsList.classList.add('open');
+      activeIndex = -1;
+    });
+
+    suggestionsList.addEventListener('click', e => {
+      const li = e.target.closest('li');
+      if (!li) return;
+      selectName(li.dataset.name);
+    });
+
+    input.addEventListener('keydown', e => {
+      const items = suggestionsList.querySelectorAll('li');
+      if (!items.length) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeIndex = Math.min(activeIndex + 1, items.length - 1);
+        highlight(items);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeIndex = Math.max(activeIndex - 1, 0);
+        highlight(items);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (activeIndex >= 0) selectName(items[activeIndex].dataset.name);
+        else if (items.length === 1) selectName(items[0].dataset.name);
+      } else if (e.key === 'Escape') {
+        closeSuggestions();
+      }
+    });
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.dropdown-wrap')) closeSuggestions();
+    });
+
+    function highlight(items) {
+      items.forEach((li, i) => li.classList.toggle('active', i === activeIndex));
+    }
+
+    function selectName(name) {
+      input.value = name;
+      selectedName = name;
+      closeSuggestions();
+      lookupBtn.disabled = false;
+    }
+
+    function closeSuggestions() {
+      suggestionsList.classList.remove('open');
+      suggestionsList.innerHTML = '';
+      activeIndex = -1;
+    }
+
+    // ── Lookup ────────────────────────────────────────────────────
+    lookupBtn.addEventListener('click', () => {
+      if (!selectedName) return;
+      clearResult();
+
+      const guest = guests.find(g => g.name.toLowerCase() === selectedName.toLowerCase());
+
+      if (!guest) {
+        showError("We couldn't find your name. Please try again or ask one of our helpers.");
+        return;
+      }
+
+      if (!guest.table) {
+        showError("Your table hasn't been assigned yet — please see one of our helpers.");
+        return;
+      }
+
+      document.getElementById('table-number').textContent = guest.table;
+      document.getElementById('guest-name-display').textContent = guest.name;
+      document.getElementById('result').classList.add('show');
+    });
+
+    function clearResult() {
+      document.getElementById('result').classList.remove('show');
+      document.getElementById('error-msg').classList.remove('show');
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('error-msg');
+      el.textContent = msg;
+      el.classList.add('show');
+    }
+
+    // ── Init ──────────────────────────────────────────────────────
+    loadGuests();
+  </script>
+
+</body>
+</html>
